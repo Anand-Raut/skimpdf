@@ -12,26 +12,24 @@ def pdf_to_md(pdfname : str):
     print("MD file created")
 
 def md_summarize():
-    ip = open("mdfile.md", "r", encoding="utf-8")
-    token =""
-    line = ip.readline()
+    mdfile = open("output.md", "r", encoding="utf-8")
+    token = ""
+    line = mdfile.readline()
     while line:
-        if "----" in line: # NEW TEXT BLOCK AFTER THIS
-            print("Token starts here: ", line)
-            token = ""
-            line = ip.readline()
-            while line and "----" not in line:
-                print("Token building: ", line)
-                if len(line.strip()):
-                    token += " "+line
-                line = ip.readline()
+        if "# **" in line:
+            token = "" 
+            line = mdfile.readline()
+            while line and "# **" not in line:
+                line = re.sub(r"[^\x00-\x7F]", "", line)
+                token += line
+                line = mdfile.readline()
             
-            token = re.sub(r"[^\x00-\x7F]", "", token)
-            token_summary = summarize(token)+"\n\n"
-            if "cnn" not in token_summary.lower():
-                summary.write(token_summary)
-        line = ip.readline()
-    print("Summarization done")
+            summary_token = summarize(token)+"\n\n"
+            if "cnn" not in summary_token.lower():
+                summary.write(summary_token)
+        line = mdfile.readline()
+           
+
                 
 if __name__ == "__main__":
     summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
