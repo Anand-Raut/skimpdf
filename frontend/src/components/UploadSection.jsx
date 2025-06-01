@@ -35,7 +35,7 @@ const UploadSection = () => {
   }
 
   return (
-    <div className="min-h-screen  text-white flex items-center justify-center p-4">
+    <div className="min-h-1/2 text-white flex items-center justify-center p-4">
       <div className="bg-black/40 backdrop-blur-lg border border-cyan-500 shadow-lg rounded-2xl p-8 max-w-3xl w-full">
         <h1 className="text-4xl font-bold text-cyan-400 mb-3">PDF Summarizer</h1>
         <p className="text-gray-300 mb-6">

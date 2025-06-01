@@ -20,7 +20,7 @@ export default function ServerStatus() {
   }, [])
 
   return (
-    <div className="bg-gray-800 border border-cyan-500 text-sm text-white px-3 py-1 rounded-full shadow-lg font-mono">
+    <div className="bg-gray-800 border border-cyan-500 text-sm text-white mr-8 px-3 py-1 rounded-full shadow-lg font-mono w-32">
       {status}
     </div>
   )
