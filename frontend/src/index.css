@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+:root{
+  background-image: radial-gradient(circle at top left, #1f2937, #111827, #0f172a);
+}
