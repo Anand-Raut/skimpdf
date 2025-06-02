@@ -2,3 +2,4 @@ fastapi
 pymupdf4llm
 transformers
 torch
+uvicorn
